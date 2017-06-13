@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: simotr84
+  api_key: '935139174357228'
+  api_secret: f9x9CC_QWi28a10JGF1913rnXvQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: simotr84
+  api_key: '935139174357228'
+  api_secret: f9x9CC_QWi28a10JGF1913rnXvQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: simotr84
+  api_key: '935139174357228'
+  api_secret: f9x9CC_QWi28a10JGF1913rnXvQ
+  enhance_image_tag: true
+  static_image_support: false

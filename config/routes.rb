@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  resources :restaurants
   resources :operators
 
   root to: 'pages#home'
-
-  get '/show' => 'operator#show'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'
