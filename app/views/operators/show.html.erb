@@ -20,5 +20,11 @@
   <%= @operator.email %>
 </p>
 
-<%= link_to 'Edit', edit_operator_path(@operator) %> |
+<p>
+  <strong>Restaurants:</strong>
+  <%= @operator.restaurants.name %>
+
+</p>
+
+<%= link_to 'Edit', edit_operator_path %>
 <%= link_to 'Back', operators_path %>
