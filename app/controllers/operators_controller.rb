@@ -1,5 +1,7 @@
 class OperatorsController < ApplicationController
   before_action :set_operator, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_logged_out, only: [:new, :create]
+  before_action :check_if_logged_in, only: [:edit, :update]
 
   # GET /operators
   # GET /operators.json
@@ -70,6 +72,27 @@ class OperatorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def operator_params
       params.require(:operator).permit(:name, :surname, :image, :email, :password_digest)
+    end
+
+    def check_if_logged_out
+      if(@current_operator)
+        flash[:error] = "You are already logged in."
+        redirect_to(operator_path(session[:operator_id]))
+      end
+    end
+
+    def check_if_logged_in
+      if(!@current_operator)
+        flash[:error] = "You need to be logged in."
+        redirect_to("/login")
+      end
+    end
+
+    def check_if_same_operator
+      if(@current_operator.id != params["id"].to_i)
+        flash[:error] = "You cannot visit that page."
+        redirect_to(operator_path(@current_operator))
+      end
     end
 
 
