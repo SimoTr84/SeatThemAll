@@ -1,3 +1,3 @@
 class Floorplan < ApplicationRecord
-  belongs_to :restaurants
+  belongs_to :restaurant
 end

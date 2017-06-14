@@ -1,12 +1,3 @@
-// $(function() {
-//   $("#draggable").draggable();
-//   $("#droppable").droppable({
-//     drop: function(event, ui) {
-//       $(this).addClass("ui-state-highlight").find("p").html("Dropped!");
-//     }
-//   });
-// });
-//
 $(document).ready(function($) {
   $(".droppable").droppable({
     accept: ".draggable",
@@ -21,11 +12,11 @@ $(document).ready(function($) {
           })
         );
 
-        // $clone.resizable({
-        //   animate: "true",
-        //   ghost: "true",
-        //   handles: "ne, nw, se, sw"
-        // });
+        $clone.resizable({
+          animate: "true",
+          ghost: true,
+          handles: "ne, nw, se, sw"
+        });
       }
     }
   });
