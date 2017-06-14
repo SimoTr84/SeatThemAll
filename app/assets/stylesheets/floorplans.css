@@ -20,6 +20,7 @@
     position:relative;
     background-color:red;
 }
+
 .draggable2 {
     width:80px;
     height:80px;
@@ -28,7 +29,8 @@
 		top: 500px;
     background-color: blue;
 }
-{
+
+ .box {
 	margin: 0px;
     padding: 0px;
 	width:500px;
