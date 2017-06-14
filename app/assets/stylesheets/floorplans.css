@@ -1,13 +1,57 @@
-#draggable {
+/*#draggable {
   width: 150px;
   height: 150px;
   padding: 0.5em;
 }
 
 #droppable {
-  width: 600px;
-  height: 300px;
+  width: 90%;
+  height: 600px;
   padding: 0.5em;
   float: left;
   margin: 10px;
+}*/
+
+
+.draggable {
+    width:80px;
+    height:80px;
+    border:1px solid black;
+    position:relative;
+    background-color:red;
 }
+.draggable2 {
+    width:80px;
+    height:80px;
+    border:1px solid black;
+    position:relative;
+		top: 500px;
+    background-color: blue;
+}
+{
+	margin: 0px;
+    padding: 0px;
+	width:500px;
+	height:600px;
+	padding:10px;
+	border:1px solid #000;
+	float: right;
+	background-color: white;
+	-webkit-box-shadow: 1px 1px 2px #575757;
+	-moz-box-shadow: 1px 1px 2px #575757;
+	box-shadow: 1px 1px 2px #575757;
+	}
+
+.droppable {
+	margin: 0px;
+  padding: 0px;
+	width: 1000px;
+	height:600px;
+	padding:10px;
+	border:1px solid #000;
+	float: right;
+	background-color: white;
+	-webkit-box-shadow: 1px 1px 2px #575757;
+	-moz-box-shadow: 1px 1px 2px #575757;
+	box-shadow: 1px 1px 2px #575757;
+	}

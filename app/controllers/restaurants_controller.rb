@@ -1,6 +1,8 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
+  before_action :check_if_logged_in, only: [:create, :edit, :update, :destroy]
+
   # GET /restaurants
   # GET /restaurants.json
   def index
@@ -25,6 +27,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.operator_id = @current_operator.id
 
     respond_to do |format|
       if @restaurant.save
@@ -57,7 +60,7 @@ class RestaurantsController < ApplicationController
     @restaurant.destroy
     respond_to do |format|
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 
@@ -70,6 +73,27 @@ class RestaurantsController < ApplicationController
       params.require(:restaurant).permit(:name, :address, :image, :operator_id)
     end
 
+    def check_if_logged_out
+      if(@current_operator)
+        flash[:error] = "You are already logged in."
+        redirect_to(operator_path(session[:operator_id]))
+      end
+    end
+
+    def check_if_logged_in
+      if(!@current_operator)
+        flash[:error] = "You need to be logged in."
+        redirect_to("/login")
+      end
+    end
+
+    def check_if_same_operator
+      if(@current_operator.id != params["id"].to_i)
+        flash[:error] = "You cannot visit that page."
+        redirect_to(operator_path(@current_operator))
+      end
+    end
+    
     def authorise
       unless @current_operator
         flash[:error] = "You need to be logged in for that"

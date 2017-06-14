@@ -22,10 +22,15 @@
 
 <p>
   <strong>Restaurants:</strong>
-  <%= @operator.restaurants.name %>
-
+    <ul>
+        <% @restaurant.each do |restaurant| %>
+        <li>
+            <%= link_to(restaurant.name, restaurant_path(restaurant)) %>
+        </li>
+        <% end %>
+    </ul>
 </p>
 
 <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_operator_path %></button>
-<br>
+&nbsp
 <button type="button" class="btn btn-default"><%= link_to 'Back', operators_path %></button>

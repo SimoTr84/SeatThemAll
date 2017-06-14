@@ -1,7 +1,7 @@
 class OperatorsController < ApplicationController
   before_action :set_operator, only: [:show, :edit, :update, :destroy]
   before_action :check_if_logged_out, only: [:new, :create]
-  before_action :check_if_logged_in, only: [:edit, :update]
+  before_action :check_if_logged_in, only: [:edit, :update, :destroy]
 
   # GET /operators
   # GET /operators.json
@@ -12,6 +12,7 @@ class OperatorsController < ApplicationController
   # GET /operators/1
   # GET /operators/1.json
   def show
+    @restaurant = @operator.restaurants
   end
 
   # GET /operators/new
