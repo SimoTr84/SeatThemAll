@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :floorplans
   resources :restaurants, :operators
 
   root to: 'pages#home'

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Top:</strong>
+  <%= @floorplan.top %>
+</p>
+
+<p>
+  <strong>Left:</strong>
+  <%= @floorplan.left %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @floorplan.restaurant_id %>
+</p>
+
+<%= link_to 'Edit', edit_floorplan_path(@floorplan) %> |
+<%= link_to 'Back', floorplans_path %>

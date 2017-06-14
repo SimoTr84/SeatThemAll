@@ -3,20 +3,58 @@
   <head>
     <title>SeatThemAllApp</title>
     <%= csrf_meta_tags %>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="../node_modules/bootstrap">
-    <link href="app/assets/stylesheets/jquery.gridly.css" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js" type="text/javascript"></script>
-    <script src="app/assets/javascripts/jquery.gridly.js" type="text/javascript"></script>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
-
+    <nav class="navbar navbar-fixed-top">
+        <div>
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">Seat Them All</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <% if(@current_operator) %>
+                <li>
+                  <%= link_to(operator_path(@current_operator.id)) do %>
+                    Hello, <%=@current_operator.name%>! <i class="fa fa-user-circle-o"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to(edit_operator_path(@current_operator.id)) do %>
+                    Edit Profile <i class="fa fa-pencil"></i>
+                  <% end %>
+                </li>
+                <li>
+                  <a rel="nofollow" data-method="delete" href="/logout">Logout<i class="fa fa-sign-out"></i></a>
+                </li>
+              <% else %>
+                <li><a href="/login">Login <i class="fa fa-sign-in"></i></a></li>
+                <li><a href="/register">Register <i class="fa fa-user-plus"></i></a> </li>
+              <% end %>
+            </ul>
+            <ul class="nav navbar-nav">
+              <% if(@current_operator) %>
+                <li><%= link_to("Restaurant", "/restaurants") %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<br>
+  <hr>
     <%= yield %>
+  <hr>
+
+
   </body>
 </html>
+
+
+
+
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js" type="text/javascript"></script> -->

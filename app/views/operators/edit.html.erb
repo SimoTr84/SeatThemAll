@@ -1,6 +1,13 @@
-<h1>Editing Operator</h1>
+<h1 >Edit your Details</h1>
 
 <%= render 'form', operator: @operator %>
 
-<%= link_to 'Show', @operator %> |
-<%= link_to 'Back', operators_path %>
+<small class="small">
+  <%= link_to 'Show', @operator %>
+</small>
+
+<br>
+
+<small class="small">
+  <%= link_to 'Back', operators_path %>
+</small>
