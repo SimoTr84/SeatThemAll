@@ -1,12 +1,12 @@
 
 
 <div id="menue-left" class="row">
-  <div id="item1" class="draggable table col-lg-2">Table</div>
-  <div id="item2" class="draggable station col-lg-2">Waiter Station</div>
-  <div id="item3" class="draggable storage col-lg-2">Storage</div>
-  <div id="item4" class="draggable pass col-lg-2">Kitchen Pass</div>
-  <div id="item5" class="draggable bar col-lg-2">Bar Area</div>
-  <div id="item6" class="draggable pos col-lg-2">POS</div>
+  <div class="draggable table col-lg-2">Table</div>
+  <div class="draggable station col-lg-2">Waiter Station</div>
+  <div class="draggable storage col-lg-2">Storage</div>
+  <div class="draggable pass col-lg-2">Kitchen Pass</div>
+  <div class="draggable bar col-lg-2">Bar Area</div>
+  <div class="draggable pos col-lg-2">POS</div>
 </div>
 
 <div>
@@ -17,21 +17,24 @@
 
 <script>
   // retrieve the coordinates saved in the database and render the elements accordingly
-  var tables = <%= @restaurant.floorplans.to_json.html_safe %>;
-  tables.forEach(function (table) {
-    // console.log(table);
+  var elements = <%= @restaurant.floorplans.to_json.html_safe %>;
+  elements.forEach(function (element) {
+
+  console.log('element.id:', element.id)
     var $elem = $("<div></div>");
-    $elem.attr("class", "draggable");
-    $elem.wrap("<div class='droppable'></div>")
-    $elem.css({
-      "position": "absolute",
-      "top": table.top,
-      "left": table.left,
-      "height": table.height,
-      "width": table.width,
-      "background-color": table.background
-    });
-    $elem.appendTo("body");
+      $elem.attr("id", element.id);
+      $elem.addClass("draggable");
+      $elem.wrap("<div class='droppable'></div>")
+      $elem.css({
+        "position": "absolute",
+        "top": element.top,
+        "left": element.left,
+        "height": element.height,
+        "width": element.width,
+        "background-color": element.background
+      });
+      console.log('$elem:', $elem);
+      $elem.appendTo("body");
 
   });
 </script>

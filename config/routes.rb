@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get "/restaurants/:id/floorplans" => "floorplans#new"
   post "/restaurants/:id/floorplans/add" => "floorplans#add"
+  put '/restaurants/:id/floorplans/:floorplanId/update' => 'floorplans#update'
 
   root to: 'pages#home'
 

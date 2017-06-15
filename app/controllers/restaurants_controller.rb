@@ -93,7 +93,7 @@ class RestaurantsController < ApplicationController
         redirect_to(operator_path(@current_operator))
       end
     end
-    
+
     def authorise
       unless @current_operator
         flash[:error] = "You need to be logged in for that"

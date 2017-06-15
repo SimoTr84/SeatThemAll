@@ -1,5 +1,5 @@
 class FloorplansController < ApplicationController
-  before_action :set_floorplan, only: [:show, :edit, :update, :destroy]
+  before_action :set_floorplan, only: [:show, :edit, :destroy]
 
   def index
     @floorplans = Floorplan.all
@@ -29,6 +29,19 @@ class FloorplansController < ApplicationController
   def edit
   end
 
+  def update
+    floorplan = Floorplan.find_by id: params[:floorplanId]
+    floorplan.width = params[:width]
+    floorplan.height = params[:height]
+    floorplan.top = params[:top]
+    floorplan.left = params[:left]
+    floorplan.background = params[:background]
+    floorplan.restaurant_id = params[:id]
+    floorplan.save
+
+    render json: { floorplan: floorplan }
+  end
+
   def create
     @floorplan = Floorplan.new(floorplan_params)
 
@@ -42,20 +55,6 @@ class FloorplansController < ApplicationController
       end
     end
   end
-
-
-  def update
-    respond_to do |format|
-      if @floorplan.update(floorplan_params)
-        format.html { redirect_to @floorplan, notice: 'Floorplan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @floorplan }
-      else
-        format.html { render :edit }
-        format.json { render json: @floorplan.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
 
   def destroy
     @floorplan.destroy
