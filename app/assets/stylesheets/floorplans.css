@@ -1,23 +1,9 @@
-/*#draggable {
-  width: 150px;
-  height: 150px;
-  padding: 0.5em;
-}
-
-#droppable {
-  width: 90%;
-  height: 600px;
-  padding: 0.5em;
-  float: left;
-  margin: 10px;
-}*/
-
-
 .draggable {
-    width: 20px;
-    height: 20px;
-    background-color: red;
-		border-radius: 3px;
+	color: black;
+  width: 100px;
+  height: 100px;
+	/*opacity: 0.8;*/
+	border-radius: 3px;
 }
 
 .droppable {
@@ -28,12 +14,15 @@
 	padding: 10px;
 	border: 2px solid #000;
 	border-radius: 3px;
-	/*float: right;*/
 	background-color: white;
 	-webkit-box-shadow: 1px 1px 2px white;
 	-moz-box-shadow: 1px 1px 2px white;
 	box-shadow: 1px 1px 2px white;
 	}
+
+.table {
+	background-color: lightblue;
+}
 
 .station {
 	background-color: gray;
@@ -49,4 +38,8 @@
 
 .bar {
 	background-color: teal;
+}
+
+.pos {
+	background-color: chartreuse;
 }

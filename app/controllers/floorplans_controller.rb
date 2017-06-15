@@ -1,28 +1,34 @@
 class FloorplansController < ApplicationController
   before_action :set_floorplan, only: [:show, :edit, :update, :destroy]
 
-  # GET /floorplans
-  # GET /floorplans.json
   def index
     @floorplans = Floorplan.all
   end
 
-  # GET /floorplans/1
-  # GET /floorplans/1.json
+  def add
+    floorplan = Floorplan.new
+    floorplan.width = params[:width]
+    floorplan.height = params[:height]
+    floorplan.top = params[:top]
+    floorplan.left = params[:left]
+    floorplan.background = params[:background]
+    floorplan.restaurant_id = params[:id]
+    floorplan.save
+
+    render json: { floorplan: floorplan }
+  end
+
   def show
   end
 
-  # GET /floorplans/new
   def new
+    @restaurant = Restaurant.find_by id: params[:id]
     @floorplan = Floorplan.new
   end
 
-  # GET /floorplans/1/edit
   def edit
   end
 
-  # POST /floorplans
-  # POST /floorplans.json
   def create
     @floorplan = Floorplan.new(floorplan_params)
 
@@ -37,8 +43,7 @@ class FloorplansController < ApplicationController
     end
   end
 
-  # PATCH/PUT /floorplans/1
-  # PATCH/PUT /floorplans/1.json
+
   def update
     respond_to do |format|
       if @floorplan.update(floorplan_params)
@@ -51,8 +56,7 @@ class FloorplansController < ApplicationController
     end
   end
 
-  # DELETE /floorplans/1
-  # DELETE /floorplans/1.json
+
   def destroy
     @floorplan.destroy
     respond_to do |format|
@@ -61,14 +65,14 @@ class FloorplansController < ApplicationController
     end
   end
 
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_floorplan
       @floorplan = Floorplan.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def floorplan_params
       params.require(:floorplan).permit(:top, :left, :restaurant_id)
     end
+
 end
