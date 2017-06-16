@@ -23,6 +23,7 @@
   console.log('element.id:', element.id)
     var $elem = $("<div></div>");
       $elem.attr("id", element.id);
+      $elem.attr("data-id", element.id);
       $elem.addClass("draggable");
       $elem.wrap("<div class='droppable'></div>")
       $elem.css({

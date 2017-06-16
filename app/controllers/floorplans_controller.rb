@@ -30,6 +30,7 @@ class FloorplansController < ApplicationController
   end
 
   def update
+
     floorplan = Floorplan.find_by id: params[:floorplanId]
     floorplan.width = params[:width]
     floorplan.height = params[:height]

@@ -1,24 +1,40 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+// 0. Fix route for update
+before:
+floorplans/:id/update (NB. this is :id)
 
-Things you may want to cover:
+after: (make it this)
+/resturaunts/:id/floorplans/:floorplanId/update
+(1. move it inside /resturaunts)
+(2. use :floorplanId)
 
-* Ruby version
 
-* System dependencies
+// 1. If dragging from top left, create (POST)
+// 2. If dragging from inside droppable, update (PUT)
 
-* Configuration
+// Need to do
 
-* Database creation
+// create
+$.ajax({
+  method: 'POST'
+  url: window.location.pathname + "/add",
+})
 
-* Database initialization
+// update
+$.ajax({
+  method: 'PUT'
+  url: window.location.pathname + ui.helper.context.id + "/update",
+})
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+// ---------
 
-* ...
+List the floorplans for each restaurants
+
+
+
+// QUESTIONS
+- why isn't "raise" working? is it something to do with $.ajax?
+- are we actually hitting the floorplan#update route?
+- why are we always trying to find a floorplan with id: 1

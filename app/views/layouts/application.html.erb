@@ -8,17 +8,17 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar-default navbar-fixed-top">
         <div>
           <div class="navbar-header">
-            <a class="navbar-brand" href="/">Seat Them All</a>
+            <a class="navbar-brand">Seat Them All</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               <% if(@current_operator) %>
                 <li>
                   <%= link_to(operator_path(@current_operator.id)) do %>
-                    Hello, <%=@current_operator.name%>! <i class="fa fa-user-circle-o"></i>
+                    Hello, <%=@current_operator.name%>!
                   <% end %>
                 </li>
                 <li>
@@ -39,7 +39,7 @@
             <ul class="nav navbar-nav">
               <% if(@current_operator) %>
                 <li><%= link_to("Restaurant", "/restaurants") %></li>
-                <li><%= link_to("Floor Plans", "/floorplans") %></li>
+                
               <% end %>
             </ul>
           </div>
@@ -49,4 +49,8 @@
     <%= yield %>
 
   </body>
+
+  <footer class="footer">
+
+  </footer>
 </html>

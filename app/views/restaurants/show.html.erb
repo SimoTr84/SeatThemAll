@@ -1,25 +1,53 @@
+<div id="menue-left" class="row">
+  <div class="draggable margin table col-lg-2">Table</div>
+  <div class="draggable margin station col-lg-2">Waiter Station</div>
+  <div class="draggable margin storage col-lg-2">Storage</div>
+  <div class="draggable margin pass col-lg-2">Kitchen Pass</div>
+  <div class="draggable margin bar col-lg-2">Bar Area</div>
+  <div class="draggable margin pos col-lg-2">POS</div>
+</div>
+
+
+<div class="row">
+  <div class="droppable col-lg-10">
+  </div>
+  <div class="col-lg-2 square">
+    <h3>Name:</h3>
+    <h5><%= @restaurant.name %></h5><br>
+    <h3>Address:</h3>
+    <%= @restaurant.address %>
+  </div>
+</div>
+
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @restaurant.image %>
-</p>
-
-<p>
-  <strong>Operator:</strong>
-  <%= @restaurant.operator_id %>
-</p>
 
 <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></button>
 &nbsp
 <button type="button" class="btn btn-default"><%= link_to 'Back', operators_path(@operator) %></button>
+
+
+
+<script>
+  // retrieve the coordinates saved in the database and render the elements accordingly
+  var elements = <%= @restaurant.floorplans.to_json.html_safe %>;
+  elements.forEach(function (element) {
+
+  console.log('element.id:', element.id)
+    var $elem = $("<div></div>");
+      $elem.attr("id", element.id);
+      $elem.attr("data-id", element.id);
+      $elem.addClass("draggable");
+      $elem.wrap("<div class='droppable'></div>")
+      $elem.css({
+        "position": "absolute",
+        "top": element.top,
+        "left": element.left,
+        "height": element.height,
+        "width": element.width,
+        "background-color": element.background
+      });
+      console.log('$elem:', $elem);
+      $elem.appendTo(".droppable");
+
+  });
+</script>

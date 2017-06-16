@@ -1,30 +1,24 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  # before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   before_action :check_if_logged_in, only: [:create, :edit, :update, :destroy]
 
-  # GET /restaurants
-  # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
   end
 
-  # GET /restaurants/1
-  # GET /restaurants/1.json
   def show
+    @restaurant = Restaurant.find(params['id'])
+    @elements = @restaurant.floorplans
   end
 
-  # GET /restaurants/new
   def new
     @restaurant = Restaurant.new
   end
 
-  # GET /restaurants/1/edit
   def edit
   end
 
-  # POST /restaurants
-  # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
     @restaurant.operator_id = @current_operator.id

@@ -1,36 +1,40 @@
 <p id="notice"><%= notice %></p>
+<div class="container box">
+  <div>
+    <h3>Welcome Back, <%= @operator.name %></h3>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @operator.name %>
-</p>
+  <div class="image">
+  <%= image_tag( @operator.image, ) %>
+  </div>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @operator.surname %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @operator.name %>
+  </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @operator.image %>
-</p>
+  <p>
+    <strong>Surname:</strong>
+    <%= @operator.surname %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @operator.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @operator.email %>
+  </p>
 
-<p>
-  <strong>Restaurants:</strong>
-    <ul>
-        <% @restaurant.each do |restaurant| %>
-        <li>
-            <%= link_to(restaurant.name, restaurant_path(restaurant)) %>
-        </li>
-        <% end %>
-    </ul>
-</p>
+  <p>
+    <strong>Restaurants:</strong>
+          <% @restaurant.each do |restaurant| %>
+              <br>
+              <%= link_to(restaurant.name, restaurant_path(restaurant)) %>
+          <% end %>
+      </ul>
+  </p>
+</div>
 
 <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_operator_path %></button>
 &nbsp
-<button type="button" class="btn btn-default"><%= link_to 'Back', operators_path %></button>
+<!-- <button type="button" class="btn btn-default"><%= link_to 'Back', operators_path %></button> -->
+&nbsp
+<button type="button" class="btn btn-default"><%= link_to 'Add Restaurant', new_restaurant_path %></button>

@@ -2,12 +2,10 @@
 
 <%= render 'form', operator: @operator %>
 
-<small class="small">
-  <%= link_to 'Show', @operator %>
-</small>
 
 <br>
 
+<button type="button" class="btn btn-default"><%= link_to 'Back', operators_path %></button>
 <small class="small">
   <%= link_to 'Back', operators_path %>
 </small>

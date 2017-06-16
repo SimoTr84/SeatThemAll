@@ -34,7 +34,10 @@ $(document).ready(function($) {
             $.ajax({
               method: "PUT",
               url:
-                window.location.pathname + "/" + $(this).attr("id") + "/update",
+                window.location.pathname +
+                  "/floorplans/" +
+                  $(this).attr("id") +
+                  "/update",
               dataType: "JSON",
               data: {
                 id: ui.helper.attr("id"),
@@ -52,13 +55,10 @@ $(document).ready(function($) {
           }
         });
       }
-
-      // this is new, need to CREATE (POST)
       if (!floorplanId) {
-        // console.log("WE ARE CREATING");
         $.ajax({
           method: "POST",
-          url: window.location.pathname + "/add",
+          url: window.location.pathname + "/floorplans/add",
           dataType: "JSON",
           data: {
             top: top,
@@ -69,14 +69,15 @@ $(document).ready(function($) {
           }
         }).done(function(data) {
           $clone.attr("id", data.floorplan.id);
-          // console.log(data.floorplan.id);
-          // console.log(data.floorplan);
         });
       } else {
         $.ajax({
           method: "PUT",
           url:
-            window.location.pathname + "/" + ui.helper.context.id + "/update",
+            window.location.pathname +
+              "/floorplans/" +
+              ui.helper.context.id +
+              "/update",
           dataType: "JSON",
           data: {
             id: ui.helper.context.id,
@@ -96,7 +97,16 @@ $(document).ready(function($) {
   });
   // hides the ghost element animation that comes back to the original position of the draggable
   $(".draggable").draggable({
-    helper: "clone",
-    revert: "invalid"
+    containment: "body",
+    helper: function(event, ui) {
+      if ($(event.currentTarget).data("id")) {
+        return $(this);
+      } else {
+        var currentID = $(event.currentTarget).attr("data-id");
+        elementType = currentID;
+        var $clone = $(this).clone();
+        return $clone;
+      }
+    }
   });
 });

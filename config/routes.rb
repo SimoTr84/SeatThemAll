@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :floorplans
-  resources :restaurants, :operators
+  
+  resources :restaurants
+
+  resources :operators
 
   get "/restaurants/:id/floorplans" => "floorplans#new"
   post "/restaurants/:id/floorplans/add" => "floorplans#add"
