@@ -18,12 +18,13 @@
               <% if(@current_operator) %>
                 <li>
                   <%= link_to(operator_path(@current_operator.id)) do %>
-                    Hello, <%=@current_operator.name%>!
+                    <%=@current_operator.name%>
+                    <%=@current_operator.surname%> 
                   <% end %>
                 </li>
                 <li>
                   <%= link_to(edit_operator_path(@current_operator.id)) do %>
-                    Edit Profile <i class="fa fa-pencil"></i>
+                    Edit Profile
                   <% end %>
                 </li>
                 <li>
@@ -39,7 +40,7 @@
             <ul class="nav navbar-nav">
               <% if(@current_operator) %>
                 <li><%= link_to("Restaurant", "/restaurants") %></li>
-                
+
               <% end %>
             </ul>
           </div>

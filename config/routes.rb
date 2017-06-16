@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :floorplans
-  
+
   resources :restaurants
 
   resources :operators
