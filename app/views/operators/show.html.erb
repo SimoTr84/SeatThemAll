@@ -1,7 +1,7 @@
-<!-- <p id="notice"><%= notice %></p> -->
+
 <div class="box">
   <div>
-    <h3>Welcome Back, <br> 
+    <h3>Welcome Back, <br>
       <%= @operator.name %>!</h3>
   </div>
 
@@ -32,10 +32,9 @@
           <% end %>
       </ul>
   </p>
-</div>
 
-<button type="button" class="btn btn-default"><%= link_to 'Edit', edit_operator_path %></button>
-&nbsp
-<!-- <button type="button" class="btn btn-default"><%= link_to 'Back', operators_path %></button> -->
-&nbsp
-<button type="button" class="btn btn-default"><%= link_to 'Add Restaurant', new_restaurant_path %></button>
+  <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_operator_path %></button>
+  &nbsp
+  <button type="button" class="btn btn-default"><%= link_to 'Add Restaurant', new_restaurant_path %></button>
+
+</div>

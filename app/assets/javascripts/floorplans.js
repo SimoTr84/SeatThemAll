@@ -1,4 +1,4 @@
-$(document).ready(function($) {
+$(document).on("ready turbolinks:load", function() {
   // set the droppable area to "accept" the draggable items
   // hold in the elements on drop action
   $(".droppable").droppable({
@@ -89,8 +89,6 @@ $(document).ready(function($) {
           }
         }).done(function(data) {
           $clone.attr("id", data.floorplan.id);
-          // console.log(data.floorplan.id);
-          // console.log(data.floorplan);
         });
       }
     }

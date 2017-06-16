@@ -8,22 +8,23 @@
 </div>
 
 
-<div class="row">
-  <div class="droppable col-lg-10">
+<div>
+  <div class="droppable">
   </div>
-  <div class="col-lg-2 square">
+  <div class="square">
     <h3>Name:</h3>
     <h5><%= @restaurant.name %></h5><br>
     <h3>Address:</h3>
     <%= @restaurant.address %>
+    <br><br>
+    <button type="button" class="btn btn-default"><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></button>
+    &nbsp
+    <button type="button" class="btn btn-default"><%= link_to 'Back', operators_path(@operator) %></button>
   </div>
+
 </div>
 
-<p id="notice"><%= notice %></p>
 
-<button type="button" class="btn btn-default"><%= link_to 'Edit', edit_restaurant_path(@restaurant) %></button>
-&nbsp
-<button type="button" class="btn btn-default"><%= link_to 'Back', operators_path(@operator) %></button>
 
 
 
@@ -41,6 +42,8 @@
       $elem.css({
         "position": "absolute",
         "top": element.top,
+        "margin-top": "20px",
+        "margin-left": "20px",
         "left": element.left,
         "height": element.height,
         "width": element.width,

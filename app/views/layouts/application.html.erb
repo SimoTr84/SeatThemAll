@@ -19,7 +19,7 @@
                 <li>
                   <%= link_to(operator_path(@current_operator.id)) do %>
                     <%=@current_operator.name%>
-                    <%=@current_operator.surname%> 
+                    <%=@current_operator.surname%>
                   <% end %>
                 </li>
                 <li>
@@ -32,14 +32,14 @@
                 </li>
                 &nbsp
               <% else %>
-                <li><a href="/login">Login <i class="fa fa-sign-in"></i></a></li>
-                <li><a href="/register">Register <i class="fa fa-user-plus"></i></a> </li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
               <% end %>
               &nbsp
             </ul>
             <ul class="nav navbar-nav">
               <% if(@current_operator) %>
-                <li><%= link_to("Restaurant", "/restaurants") %></li>
+                <li><%= link_to("Restaurant", "/restaurants/#{@restaurant_id}") %></li>
 
               <% end %>
             </ul>
@@ -51,7 +51,4 @@
 
   </body>
 
-  <footer class="footer">
-
-  </footer>
 </html>

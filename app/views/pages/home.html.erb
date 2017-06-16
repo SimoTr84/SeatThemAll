@@ -2,7 +2,7 @@
 <div class="container box">
   <h1>Welcome to Seat Them All</h1>
 
-  <button type="button" class="btn btn-default"><%= link_to("Login", "/login") %></button>
-  <button type="button" class="btn btn-default"><%= link_to("Register", "/operators/new") %></a></button>
+  <%= link_to("/login") do %><button type="button" class="btn btn-default">Login</button><% end %>
+  <%= link_to("/operators/new") do %><button type="button" class="btn btn-default">Register</button><% end %>
 
 </div>

@@ -3,10 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .square {
+  // position: absolute;
   background: white;
   padding: 10px;
   margin-left: 10px;
   border: 2px solid black;
+  width: 30%;
+  float: left;
+  position: absolute;
+  top: 190px;
+  right: 30px;
   border-radius: 3px;
   -webkit-box-shadow: 1px 1px 2px black;
   -moz-box-shadow: 1px 1px 2px black;
@@ -15,6 +21,12 @@
 
 .margin {
   margin-left: 20px;
+  margin-top: 20px;
   text-align: center;
 
 }
+
+// #menue-left {
+//   margin-top: 20px;
+//   margin-left: 10px;
+// }
