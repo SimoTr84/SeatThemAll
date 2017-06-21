@@ -21,19 +21,29 @@
     <%= f.text_field :surname %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= f.label :image %>
     <%= f.text_field :image %>
-  </div>
+  </div> -->
 
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
-  <!-- <div class="field">
-    <%= f.label :password_digest %>
-    <%= f.text_field :password_digest %>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password_digest, placeholder: 'Password' %>
+  </div>
+
+  <!-- <div class="form-group">
+  <%#= f.label :password_confirmation %>
+  <%#= f.password_field :password_confirmation, class: "form-control", placeholder: 'Confirm Password'  %>
+</div>
+
+  <div class="field">
+    <%#= f.label :password_digest %>
+    <%#= f.text_field :password_digest %>
   </div> -->
 
   <div class="actions">

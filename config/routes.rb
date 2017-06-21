@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :restaurants
 
   resources :operators
+  get "/register" => "operators#new"
 
   get "/restaurants/:id/floorplans" => "floorplans#new"
   post "/restaurants/:id/floorplans/add" => "floorplans#add"
